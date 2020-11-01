@@ -1,41 +1,43 @@
 <template>
   <div class="hello">
     <span class="text">Calculator</span>
-    <form class="calculator"  v-on:submit.prevent>
-      <input @keyup.enter="summ"
-        type="text" placeholder="0" class="input-num" v-model="result">
-      <button type="button" name="button" class="item col-1" @click="minusNum()">CE</button>
-      <button type="button" name="button" class="item col-1" @click="zero()">C</button>
-      <button type="button" name="button" class="item col-1" @click="minus()">D</button>
-      <button
-        type="button"
-        name="button"
-        class="operation col-1"
-        v-for="(oper, index) in operation"
-        :key="index"
-        @click="input(oper)"
-      >
-        {{ oper }}
-      </button>
-      <button
-        type="button"
-        name="button"
-        class="operation col-1"
-        @click="summ()"
-      >=</button>
-    </form>
-    <div class="num-cal">
-      <button
-        type="button"
-        name="button"
-        class="number"
-        v-for="(num, index) in number"
-        :key="index"
-        :class="{'col-1': num.isActiv}"
-        @click="input(num.x)"
-      >
-        {{ num.x }}
-      </button>
+    <div class="cal">
+      <form class="calculator"  v-on:submit.prevent>
+        <input @keyup.enter="summ"
+          type="text" placeholder="0" class="input-num" v-model="result">
+        <button type="button" name="button" class="item col-1" @click="minusNum()">CE</button>
+        <button type="button" name="button" class="item col-1" @click="zero()">C</button>
+        <button type="button" name="button" class="item col-1" @click="minus()">D</button>
+        <button
+          type="button"
+          name="button"
+          class="operation col-1"
+          v-for="(oper, index) in operation"
+          :key="index"
+          @click="input(oper)"
+        >
+          {{ oper }}
+        </button>
+        <button
+          type="button"
+          name="button"
+          class="operation col-1"
+          @click="summ()"
+        >=</button>
+      </form>
+      <div class="num-cal">
+        <button
+          type="button"
+          name="button"
+          class="number"
+          v-for="(num, index) in number"
+          :key="index"
+          :class="{'col-1': num.isActiv}"
+          @click="input(num.x)"
+        >
+          {{ num.x }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -89,8 +91,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.calculator{
+.cal{
   width: 351px;
+  position: relative;
+  margin: 0 auto;
+}
+.calculator{
   height: 371px;
   margin: 0 auto;
   display: grid;
@@ -180,7 +186,6 @@ line-height: 21px;
   width: 265px;
   position: relative;
   top:-201px;
-  left:605px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
