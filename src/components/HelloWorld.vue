@@ -4,7 +4,7 @@
     <div class="cal">
       <form class="calculator"  v-on:submit.prevent>
         <input @keyup.enter="summ"
-          type="text" placeholder="0" class="input-num" v-model="result">
+          type="text" placeholder="0" class="input-num" v-model="result" autofocus="autofocus">
         <button type="button" name="button" class="item col-1" @click="minusNum()">CE</button>
         <button type="button" name="button" class="item col-1" @click="zero()">C</button>
         <button type="button" name="button" class="item col-1" @click="minus()">D</button>
